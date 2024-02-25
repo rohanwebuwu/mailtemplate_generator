@@ -1,0 +1,93 @@
+---
+title: "Confirm your email address"
+preheader: "Please confirm your email address in order to activate your account."
+bodyClass: bg-white
+---
+
+<x-main>
+  <div class=" ">
+    <table align="center" class=" bg-[#054274] rounded-xl border-solid border-3 border-black">
+      <tr>
+        <td class="w-[552px] max-w-full">
+          <div class=" flex justify-start">
+            <a href="">
+              <img src="images/logolease.svg" width="250" height="150" alt="leasehub">
+            </a>
+          </div>
+
+          <table class="w-full">
+            <tr>
+              
+              <td class="m-10   text-base text-slate-700 bg-white rounded shadow-sm ">
+                <div class="  w-full h-full">
+
+                  <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  alt="prperty image">
+                </div>
+<div class=" m-12  ">
+
+
+
+                <h1 class="m-0 mb-6 text-2xl sm:leading-8 text-black font-semibold">
+                  {{property name}} <br>
+                  <div>
+
+                    Beds: {{ num_bed }} | Baths: {{ num_bath }} | Rent: ${{ price }}
+                  </div>
+                </h1>
+                <x-divider class=" bg-black" />
+
+                <p class="m-0 leading-6">
+                  Agent Name: {{ agent_name }} <br> Contact No: {{ phone }} <br> Email ID: {{ email_id }}
+                  <br>
+                  <br>
+                  Requested Timeslots:
+                  <div class="timeslots" {% if requested_timeslot %}{% else %}style="display: none;"{% endif %}>
+                    {% for date, times in requested_timeslot.items %}
+                        <div class="date-box">{{ date }}:
+                            {% for time in times %}
+                                <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                </p>
+              </div>
+<div class=" bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2 ">
+  Status: {{ status }}
+</div>
+                <x-spacer height="24px" />
+
+               
+
+     
+
+               
+              </td>
+            </tr>
+            <tr role="separator">
+              <td class="leading-12">&zwj;</td>
+            </tr>
+            <tr>
+              <td class="text-center  text-xs m-12 ">
+              
+
+                <p class="m-0 italic">
+                  Powered by LeaseHub | If you face any issues, please contact 
+                  <a href="mailTo:support@avaasa.com">
+
+                    support@avaasa.com
+                  </a>
+                </p>
+
+              
+              </td>
+              <tr role="separator">
+                <td class="leading-12">&zwj;</td>
+              </tr>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>
