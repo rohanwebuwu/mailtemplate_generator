@@ -52,16 +52,36 @@ bodyClass: bg-white
                 </div>
                 </p>
               </div>
-<div class=" bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2 ">
+              <script>
+                let statuscolor="green"
+                if (status=="accepted") {
+                  statuscolor="green"
+                  
+                }
+                else{
+                  statuscolor=="red"
+                }
+                  
+              </script>
+<div class="bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2">
   Status: {{ status }}
 </div>
                 <x-spacer height="24px" />
+                {if status=="confirmed"}
+                <div class=" grid  grid-rows-3 text-center bg-slate-100 m-5 rounded-xl gap-3 ">
+<div>
+  Confirmed time: <span>{{ confirmed_time }}</span>
+</div>
+<div>
+  Key Information: <span>{{ lockbox_info }}</span>
+</div>
+<div>
+  Remarks: <span>{{ remarks }}</span>
+</div>
+                </div>
 
-               
 
-     
 
-               
               </td>
             </tr>
             <tr role="separator">
