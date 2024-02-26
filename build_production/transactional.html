@@ -82,12 +82,16 @@
                     </div>
                     <p style="margin: 0;"></p>
                   </div>
-                  <div style="margin: 32px; display: flex; justify-content: center; border-radius: 9999px; border-width: 2px; border-style: solid; background-color: #e2e8f0">
+                  <script>
+                    const status = "confirmed"
+                  </script>
+                  <div style="margin: 32px; display: flex; width: auto; justify-content: center; border-radius: 9999px; border-width: 2px; border-style: solid; background-color: #e2e8f0">
                     Status: undefined
                   </div>
                   <div role="separator" style="line-height: 24px">&zwj;</div>
                   {if status=="confirmed"}
-                  <div style="margin: 20px; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 12px; border-radius: 12px; background-color: #f1f5f9; text-align: center">
+                  <div style="margin: 24px; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 4px; border-radius: 12px; background-color: #f3f4f6; text-align: center">
+                    <div role="separator" style="background-color: #cbd5e1; height: 1px; line-height: 1px; margin: 24px 0">&zwj;</div>
                     <div>
                       Confirmed time: <span>undefined</span>
                     </div>
@@ -96,6 +100,52 @@
                     </div>
                     <div>
                       Remarks: <span>undefined</span>
+                    </div>
+                    <div role="separator" style="background-color: #cbd5e1; height: 1px; line-height: 1px; margin: 24px 0;">&zwj;</div>
+                    <div>
+                      {% if status != 'Cancelled' and status != 'Declined' %}
+                      {% if status == 'Management Requesting Reschedule' %}<div>
+                        <a href="https://example.com" style="display: inline-block; border-radius: 4px; background-color: #4338ca; padding: 16px 24px; font-size: 16px; font-weight: 600; line-height: 1; color: #f8fafc; text-decoration: none">
+                          <!--[if mso]>
+      <i style="mso-font-width: 150%; mso-text-raise: 30px" hidden>&emsp;</i>
+    <![endif]-->
+                          <span style="mso-text-raise: 16px">
+                      Accept or Decline
+                    </span>
+                          <!--[if mso]>
+      <i hidden style="mso-font-width: 150%;">&emsp;&#8203;</i>
+    <![endif]-->
+                        </a>
+                      </div>
+                      <p style="margin: 0; font-size: 0.8em; color: #666;">Note: Non-action within 12 hours will result in automatic
+                        cancellation of the showing</p>
+                      {% else %}<div>
+                        <a style="display: inline-block; border-radius: 4px; background-color: #4338ca; padding: 16px 24px; font-size: 16px; font-weight: 600; line-height: 1; color: #f8fafc; text-decoration: none;">
+                          <!--[if mso]>
+      <i style="mso-font-width: 150%; mso-text-raise: 30px;" hidden>&emsp;</i>
+    <![endif]-->
+                          <span style="mso-text-raise: 16px">
+                      Click here to cancel
+                    </span>
+                          <!--[if mso]>
+      <i hidden style="mso-font-width: 150%;">&emsp;&#8203;</i>
+    <![endif]-->
+                        </a>
+                      </div>
+                      {% endif %}
+                      {% if status == 'Confirmed' %}<div>
+                        <a style="display: inline-block; border-radius: 4px; background-color: #4338ca; padding: 16px 24px; font-size: 16px; font-weight: 600; line-height: 1; color: #f8fafc; text-decoration: none;">
+                          <!--[if mso]>
+      <i style="mso-font-width: 150%; mso-text-raise: 30px;" hidden>&emsp;</i>
+    <![endif]-->
+                          <span style="mso-text-raise: 16px">
+                      Click here to cancel
+                    </span>
+                          <!--[if mso]>
+      <i hidden style="mso-font-width: 150%;">&emsp;&#8203;</i>
+    <![endif]-->
+                        </a>
+                      </div> {% endif %}
                     </div>
                   </div>
                 </td>

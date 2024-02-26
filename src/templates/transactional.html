@@ -7,138 +7,144 @@ bodyClass: bg-white
 <x-main>
   <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
     }
 
     .card {
-        max-width: 400px;
-        background-color: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        margin: 20px auto;
+      max-width: 400px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
     }
 
     .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
 
     .card-content {
-        padding: 20px;
+      padding: 20px;
     }
 
-    h1, h3, p {
-        margin: 0;
+    h1,
+    h3,
+    p {
+      margin: 0;
     }
 
     h1 {
-        font-size: 1.1em;
-        color: #000;
+      font-size: 1.1em;
+      color: #000;
     }
 
     .info-line {
-        padding: 1px;
-        border-radius: 8px;
-        margin-bottom: 2px;
-        display: inline-block;
-        width: 100%;
-        color: #000;
-        font-size: 0.9em;
-        font-weight: bold;
+      padding: 1px;
+      border-radius: 8px;
+      margin-bottom: 2px;
+      display: inline-block;
+      width: 100%;
+      color: #000;
+      font-size: 0.9em;
+      font-weight: bold;
     }
 
     .info-timeslots {
-        padding: 1px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        display: inline-block;
-        width: 100%;
-        color: #000;
-        font-size: 0.9em;
-        font-weight: bold;
+      padding: 1px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: inline-block;
+      width: 100%;
+      color: #000;
+      font-size: 0.9em;
+      font-weight: bold;
     }
 
     .date-box {
-        border-radius: 8px;
-        margin-bottom: 5px;
-        display: inline-block;
-        width: 70%;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      display: inline-block;
+      width: 70%;
     }
 
     .time-box {
-        background-color: #f0f0f0; /* Light grey for time */
-        padding: 5px;
-        border-radius: 8px;
-        margin-right: 5px;
-        font-size: 0.8em;
-        display: inline-block;
+      background-color: #f0f0f0;
+      /* Light grey for time */
+      padding: 5px;
+      border-radius: 8px;
+      margin-right: 5px;
+      font-size: 0.8em;
+      display: inline-block;
     }
 
     .agent-info {
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .agent-info strong {
-        font-weight: bold;
-        color: navy;
+      font-weight: bold;
+      color: navy;
     }
 
     .cancel-button {
-        background-color: #ff6961;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        text-decoration: none;
-        display: block;
-        text-align: center;
-        margin-top: 15px;
+      background-color: #ff6961;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 15px;
     }
 
     .footer-text {
-        font-size: 0.7em;
-        color: #666;
-        margin-top: 10px;
+      font-size: 0.7em;
+      color: #666;
+      margin-top: 10px;
     }
-    
+
     .confirmed-box {
-        padding: 5px;
-        border-radius: 5px;
-        margin-top: 10px;
-        background-color: #DFF2BF;
+      padding: 5px;
+      border-radius: 5px;
+      margin-top: 10px;
+      background-color: #DFF2BF;
     }
-    
+
     .status-word {
-    font-weight: bold;
+      font-weight: bold;
     }
 
     .status-word.confirmed {
-        color: #228B22; /* Green color for Confirmed */
+      color: #228B22;
+      /* Green color for Confirmed */
     }
 
     .status-word.declined,
     .status-word.cancelled {
-        color: #ff6f61; /* Red color for Declined and Cancelled */
+      color: #ff6f61;
+      /* Red color for Declined and Cancelled */
     }
 
     .status-word.dark-grey {
-        color: #333; /* Dark grey for other statuses */
+      color: #333;
+      /* Dark grey for other statuses */
     }
 
     .landlord-remarks {
-        margin-top: 10px;
-        color: #000;
-        font-weight: bold;
+      margin-top: 10px;
+      color: #000;
+      font-weight: bold;
     }
-</style>
+  </style>
   <div class=" ">
     <table align="center" class=" bg-[#054274] rounded-xl border-solid border-3 border-black">
       <tr>
@@ -151,87 +157,121 @@ bodyClass: bg-white
 
           <table class="w-full">
             <tr>
-              
+
               <td class="m-10   text-base text-slate-700 bg-white rounded shadow-sm ">
                 <div class="  w-full h-full">
 
-                  <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  alt="prperty image">
+                  <img
+                    src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="prperty image">
                 </div>
-<div class=" m-12  ">
+                <div class=" m-12  ">
 
 
 
-                <h1 class="m-0 mb-6 text-2xl sm:leading-8 text-black font-semibold">
-                  {{property name}} <br>
-                  <div>
+                  <h1 class="m-0 mb-6 text-2xl sm:leading-8 text-black font-semibold">
+                    {{property name}} <br>
+                    <div>
 
-                    Beds: {{ num_bed }} | Baths: {{ num_bath }} | Rent: ${{ price }}
-                  </div>
-                </h1>
-                <x-divider class=" bg-black" />
+                      Beds: {{ num_bed }} | Baths: {{ num_bath }} | Rent: ${{ price }}
+                    </div>
+                  </h1>
+                  <x-divider class=" bg-black" />
 
-                <p class="m-0 leading-6">
-                  Agent Name: {{ agent_name }} <br> Contact No: {{ phone }} <br> Email ID: {{ email_id }}
-                  <br>
-                  <br>
-                  Requested Timeslots:
-                  <div class="timeslots" {% if requested_timeslot %}{% else %}style="display: none;"{% endif %}>
+                  <p class="m-0 leading-6">
+                    Agent Name: {{ agent_name }} <br> Contact No: {{ phone }} <br> Email ID: {{ email_id }}
+                    <br>
+                    <br>
+                    Requested Timeslots:
+                  <div class="timeslots" {% if requested_timeslot %}{% else %}style="display: none;" {% endif %}>
                     {% for date, times in requested_timeslot.items %}
-                        <div class="date-box">{{ date }}:
-                            {% for time in times %}
-                                <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
-                            {% endfor %}
-                        </div>
+                    <div class="date-box">{{ date }}:
+                      {% for time in times %}
+                      <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
+                      {% endfor %}
+                    </div>
                     {% endfor %}
+                  </div>
+                  </p>
                 </div>
-                </p>
-              </div>
-          
-<div class="bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2">
-  Status: {{ status }}
-</div>
+                <script>
+                  const status = "confirmed"
+
+
+                </script>
+                <div class="bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2 w-auto">
+                  Status: {{ status }}
+                </div>
                 <x-spacer height="24px" />
                 {if status=="confirmed"}
-                <div class=" grid  grid-rows-3 text-center bg-slate-100 m-5 rounded-xl gap-3 ">
-<div>
-  Confirmed time: <span>{{ confirmed_time }}</span>
-</div>
-<div>
-  Key Information: <span>{{ lockbox_info }}</span>
-</div>
-<div>
-  Remarks: <span>{{ remarks }}</span>
-</div>
+                <div class=" grid  grid-rows-3 text-center bg-gray-100 m-6 rounded-xl gap-1  ">
+                  <x-divider />
+                  <div>
+                    Confirmed time: <span>{{ confirmed_time }}</span>
+                  </div>
+                  <div>
+                    Key Information: <span>{{ lockbox_info }}</span>
+                  </div>
+                  <div>
+                    Remarks: <span>{{ remarks }}</span>
+                  </div>
+
+                  <x-divider />
+                  <div class="cta-container">
+                    {% if status != 'Cancelled' and status != 'Declined' %}
+                    {% if status == 'Management Requesting Reschedule' %}
+                    <x-button href="https://example.com">
+                      Accept or Decline
+                    </x-button>
+                    <p style="font-size: 0.8em; color: #666;">Note: Non-action within 12 hours will result in automatic
+                      cancellation of the showing</p>
+                    {% else %}
+                    <x-button href="{{ cta_link }}">
+                      Click here to cancel
+                    </x-button>
+                    {% endif %}
+                    {% if status == 'Confirmed' %}
+                    <x-button href="{{ cta_link }}">
+                      Click here to cancel
+                    </x-button>
+
+                    {% endif %}
+
+                  </div>
                 </div>
 
 
 
               </td>
+
             </tr>
+
             <tr role="separator">
+
               <td class="leading-12">&zwj;</td>
             </tr>
+
             <tr>
               <td class="text-center  text-xs m-12 ">
-              
+
 
                 <p class="m-0 italic">
-                  Powered by LeaseHub | If you face any issues, please contact 
+                  Powered by LeaseHub | If you face any issues, please contact
                   <a href="mailTo:support@avaasa.com">
 
                     support@avaasa.com
                   </a>
                 </p>
 
-              
+
               </td>
-              <tr role="separator">
-                <td class="leading-12">&zwj;</td>
-              </tr>
+            <tr role="separator">
+              <td class="leading-12">&zwj;</td>
             </tr>
-          </table>
-        </td>
       </tr>
+    </table>
+    </td>
+    </tr>
     </table>
   </div>
 </x-main>
