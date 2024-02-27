@@ -2,6 +2,27 @@
 title: "Confirm your email address"
 preheader: "Please confirm your email address in order to activate your account."
 bodyClass: bg-white
+property_name: "Spacious Studio in City Center"
+num_bed: 1
+num_bath: 1
+
+price: 1500
+agent_name: "John Smith"
+phone: "(555) 555-5555"
+email_id: "john.smith@leasehub.com"
+requested_timeslot: "2:00pm"
+requested_timeslot_date: "26th of March"
+
+
+status: "On-Hold"
+reason: "reason given by the landlord"
+confirmed_time: "10:00 AM"
+lockbox_info: "Code: 12345, Location: Front door"
+remarks: "Please bring a valid ID and proof of income."
+cta_link: "https://example.com/cancel-showing"
+
+
+
 ---
 
 <x-main>
@@ -170,79 +191,98 @@ bodyClass: bg-white
 
 
                   <h1 class="m-0 mb-6 text-2xl sm:leading-8 text-black font-semibold">
-                    {{property name}} <br>
+                    {{page.property_name}} <br>
                     <div>
 
-                      Beds: {{ num_bed }} | Baths: {{ num_bath }} | Rent: ${{ price }}
+                      Beds: {{ page.num_bed }} | Baths: {{ page.num_bath }} | Rent: ${{ page.price }}
                     </div>
                   </h1>
                   <x-divider class=" bg-black" />
 
                   <p class="m-0 leading-6">
-                    Agent Name: {{ agent_name }} <br> Contact No: {{ phone }} <br> Email ID: {{ email_id }}
+                    Agent Name: {{ page.agent_name }} <br> Contact No: {{ page.phone }} <br> Email ID: {{page.email_id}}
                     <br>
                     <br>
-                    Requested Timeslots:
-                  <div class="timeslots" {% if requested_timeslot %}{% else %}style="display: none;" {% endif %}>
-                    {% for date, times in requested_timeslot.items %}
-                    <div class="date-box">{{ date }}:
-                      {% for time in times %}
-                      <div class="time-box" style="font-size: 0.8em;">{{ time }}</div>
-                      {% endfor %}
-                    </div>
-                    {% endfor %}
-                  </div>
+
+                    <if condition="page.status === 'Awaiting Confirmation' && page.requested_timeslot">
+                      <Strong>
+                        Requested Timeslot:
+                      </Strong>
+                      {{page.requested_timeslot_date}}
+                      {{page.requested_timeslot}}
+
+
+                    </if>
                   </p>
                 </div>
-                <script>
-                  const status = "confirmed"
 
 
-                </script>
-                <div class="bg-slate-200 rounded-full m-8 flex justify-center border-solid border-2 w-auto">
-                  Status: {{ status }}
-                </div>
-                <x-spacer height="24px" />
-                {if status=="confirmed"}
-                <div class=" grid  grid-rows-3 text-center bg-gray-100 m-6 rounded-xl gap-1  ">
-                  <x-divider />
-                  <div>
-                    Confirmed time: <span>{{ confirmed_time }}</span>
+                <if condition="page.status === 'confirmed'">
+                  <div class="bg-green-300 rounded-full m-8 flex justify-center border-solid border-2 w-auto">
+                    Status: {{ page.status }}
                   </div>
-                  <div>
-                    Key Information: <span>{{ lockbox_info }}</span>
-                  </div>
-                  <div>
-                    Remarks: <span>{{ remarks }}</span>
-                  </div>
-
-                  <x-divider />
-                  <div class="cta-container">
-                    {% if status != 'Cancelled' and status != 'Declined' %}
-                    {% if status == 'Management Requesting Reschedule' %}
-                    <x-button href="https://example.com">
-                      Accept or Decline
-                    </x-button>
-                    <p style="font-size: 0.8em; color: #666;">Note: Non-action within 12 hours will result in automatic
-                      cancellation of the showing</p>
-                    {% else %}
-                    <x-button href="{{ cta_link }}">
-                      Click here to cancel
-                    </x-button>
-                    {% endif %}
-                    {% if status == 'Confirmed' %}
-                    <x-button href="{{ cta_link }}">
-                      Click here to cancel
-                    </x-button>
-
-                    {% endif %}
+                </if>
+                <if condition="page.status === 'Awaiting Confirmation' || page.status === 'On-Hold'">
+                  <div class="bg-yellow-500 rounded-full m-8 flex justify-center border-solid border-2 w-auto ">
+                    Status: {{ page.status }}
 
                   </div>
-                </div>
+                </if>
+                <if condition="page.status === 'Declined by agent'">
+                  <div
+                    class="bg-red-300 rounded-full m-8 flex justify-center border-solid border-2 w-auto font-extrabold ">
+
+                    Status: {{ page.status }}
+
+                  </div>
+                </if>
+
+
+                <if condition="page.status === 'confirmed'">
+                  <div class="grid  grid-rows-3 text-center bg-gray-100 m-6 rounded-xl gap-2 font-semibold  ">
+                    <hr class="border-0 text-white my-4 min-h-full">
+                    <div>
+                      Confirmed time: <span>{{ page.confirmed_time }}</span>
+                    </div>
+                    <div>
+                      Key Information: <span>{{ page.lockbox_info }}</span>
+                    </div>
+                    <div>
+                      Remarks: <span>{{ page.remarks }}</span>
+                    </div>
+                    <hr class="border-0 text-white my-4 min-h-full">
+
+
+                  </div>
+
+                </if>
+                <if condition="page.status === 'Declined by agent'">
+                  <div class="text-center bg-gray-100 m-6 rounded-xl">Reason:{{page.reason}}</div>
+                </if>
+                <if condition="page.status === 'Declined by landlord'">
+                  <div class="text-center bg-gray-100 m-6 rounded-xl">Reason:{{page.reason}}</div>
+                </if>
+                <if condition="page.status === 'Awaiting Confirmation'">
+                  <div class=" flex justify-center flex-col">
+                    <div>
+
+                    </div>
+
+
+                    <a href="{{ cta_link }}"
+                      class="inline-block py-4 px-6 text-sm text-center leading-none font-semibold rounded [text-decoration:none] text-white bg-indigo-500 hover:bg-indigo-600 cursor-pointer ">
+                      <!--[if mso]><i style="mso-font-width: 150%; mso-text-raise: 26pt;" hidden>&emsp;</i><![endif]-->
+                      <span style="mso-text-raise: 13pt;">Accept or Cancel</span>
+                      <!--[if mso]><i style="mso-font-width: 150%;" hidden>&emsp;&#8203;</i><![endif]-->
+                    </a>
+                  </div>
+                </if>
+
 
 
 
               </td>
+
 
             </tr>
 
